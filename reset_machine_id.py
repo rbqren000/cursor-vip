@@ -255,7 +255,7 @@ class MachineIDResetter:
         """显示重新注册和登录的说明"""
         print("\n第四步：重新注册和登录Cursor")
         print("1. 访问Cursor官网 (https://cursor.sh)")
-        print("2. 点击右上角头像，选择'Sign Out'注销账号")
+        print("2. 点击右上角头像，在'Account选项卡'，找到'Advanced'，选择'Delete Account'注销账号")
         print("3. 点击'Sign Up'注册新账号")
         print("4. 选择注册方式：")
         print("   - Google账号（推荐）")
