@@ -1,9 +1,7 @@
 name: Build and Release with PyInstaller
 
 on:
-  push:
-    tags:
-      - 'v*'  # 每次推送版本标签时触发，确保只在版本发布时运行
+  push
 
 jobs:
   build:
