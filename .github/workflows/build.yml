@@ -1,4 +1,4 @@
-name: Build Python Executables for Windows, MacOS, and Linux
+name: Build and Upload Python Executables
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # 使用你需要的 Python 版本
+          python-version: '3.x'  # 使用您需要的 Python 版本
 
       - name: Install dependencies
         run: |
@@ -33,7 +33,7 @@ jobs:
           pyinstaller --onefile --add-data "assets:assets" reset_machine_id.py  # 根据需要调整参数
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: cursor-vip-${{ matrix.os }}
           path: dist/reset_machine_id${{ matrix.os == 'windows-latest' && '.exe' || '' }}  # 根据操作系统设置可执行文件路径
