@@ -1,0 +1,83 @@
+name: Build and Release with PyInstaller
+
+on:
+  push:
+    tags:
+      - 'v*'  # 每次推送版本标签时触发，确保只在版本发布时运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用 Linux 环境，可以根据需要改成 macos 或 windows
+    
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]  # 支持多平台构建
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # 使用你需要的 Python 版本
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build the executable with PyInstaller
+        run: |
+          pyinstaller --onefile --add-data "assets:assets" reset_machine_id.py  # 替换为你的脚本路径
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cursor-vip-build-${{ matrix.os }}
+          path: dist/reset_machine_id${{ matrix.os == 'windows-latest' && '.exe' || '' }}  # 根据操作系统设置可执行文件路径
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest  # 使用 Ubuntu 环境来发布
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create GitHub Release
+        uses: gh actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: "This is an automated release from GitHub Actions for cursor-vip."
+          draft: false
+          prerelease: false
+
+      - name: Upload Windows asset
+        if: runner.os == 'Windows'
+        uses: gh actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/reset_machine_id.exe  # 替换为你的 Windows 可执行文件路径
+          asset_name: reset_machine_id_windows.exe
+          asset_content_type: application/octet-stream
+
+      - name: Upload MacOS asset
+        if: runner.os == 'macOS'
+        uses: gh actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/reset_machine_id  # 替换为你的 MacOS 可执行文件路径
+          asset_name: reset_machine_id_macos
+          asset_content_type: application/octet-stream
+
+      - name: Upload Linux asset
+        if: runner.os == 'Linux'
+        uses: gh actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/reset_machine_id  # 替换为你的 Linux 可执行文件路径
+          asset_name: reset_machine_id_linux
+          asset_content_type: application/octet-stream
